@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>商品列表</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/list.css">
+</head>
+
+<body>
+  <div class="header container">
+    XXX电商 · 商品列表
+    <p style="display: block;">
+      <a href="./cart.html">进入购物车</a>
+      <a href="./index.html">回到首页</a>
+    </p>
+  </div>
+
+  <div class="filter container">
+    <div class="cateBox">
+      <p>分类</p>
+      <ul class="category">
+        <!-- js渲染 -->
+        <li class="active">全部</li>
+        <li>手机</li>
+        <li>衣服</li>
+        <li>衣服</li>
+        <li>衣服</li>
+        <li>衣服</li>
+        <li>衣服</li>
+      </ul>
+    </div>
+    <div class="cateBox">
+      <p>筛选</p>
+      <ul class="filterBox">
+        <li data-type='' class="active">全部</li>
+        <li data-type='hot'>热销</li>
+        <li data-type='sale'>折扣</li>
+      </ul>
+    </div>
+    <div class="cateBox">
+      <p>折扣</p>
+      <ul class="filterBox saleBox">
+        <li data-type="10" class="active">全部</li>
+        <li data-type="5">5折</li>
+        <li data-type="6">6折</li>
+        <li data-type="7">7折</li>
+        <li data-type="8">8折</li>
+        <li data-type="9">9折</li>
+      </ul>
+    </div>
+    <div class="cateBox">
+      <p>排序</p>
+      <ul class="filterBox sortBox">
+        <li data-type="id" data-method="ASC" class="active">综合 正序</li>
+        <li data-type="id" data-method="DESC">综合 倒序</li>
+        <li data-type="sale" data-method="ASC">折扣 正序</li>
+        <li data-type="sale" data-method="DESC">折扣 倒序</li>
+        <li data-type="price" data-method="ASC">价格 正序</li>
+        <li data-type="price" data-method="DESC">价格 倒序</li>
+      </ul>
+    </div>
+    <div class="cateBox">
+      <p>搜索</p>
+      <input type="text" class="search">
+    </div>
+  </div>
+
+  <div class="pagination container">
+    <span class="first disable">首页</span>
+    <span class="prev disable">上一页</span>
+    <p class="total">1 / 10</p>
+    <span class="next">下一页</span>
+    <span class="last">末页</span>
+    <input type="number" class="jump" value="1"><button class="go">跳转</button>
+    <select class="pagesize">
+      <option value="12">12</option>
+      <option value="16">16</option>
+      <option value="20">20</option>
+      <option value="24">24</option>
+    </select>
+  </div>
+
+  <ul class="list container">
+    <!-- <img src="../img/no.png" alt=""> -->
+    <!-- js渲染的数据 -->
+    <li data-id="3">
+      <div class="show">
+        <img src="https://image4.suning.cn/uimg/b2c/newcatentries/0070081143-000000000131021736_2_800x800.jpg">
+        <span class="hot">热销</span>
+        <span>折扣</span>
+      </div>
+      <div class="info">
+        <p class="title">南极人 【5双礼盒装】男士袜子中筒棉袜四季商务袜透气袜子男P3014</p>
+        <p class="price">
+          <span class="curr">¥ 17.40</span>
+          <span class="old">¥ 29.00</span>
+        </p>
+        <button data-id="3">加入购物车</button>
+      </div>
+    </li>
+  </ul>
+  <div class="footer container">页面底部</div>
+</body>
+<script src="../js/list.js" type="module"></script>
+
+</html>

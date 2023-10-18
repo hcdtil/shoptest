@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>个人中心</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/form.css">
+  <link rel="stylesheet" href="../css/self.css">
+</head>
+
+<body>
+  <div class="header container">个人中心
+    <p style="display: block;">
+      <a href="./rpwd.html">修改密码</a>
+      <a href="./index.html">回到首页</a>
+    </p>
+  </div>
+  <form>
+    <label for="tx">
+      <img src="../img/no.png">
+    </label>
+    <input type="file" name="avator" hidden id="tx">
+    <label>
+      用户名： <input type="text" class="username" disabled>
+    </label>
+    <label>
+      年龄： <input type="text" class="age" name="age">
+    </label>
+    <label>
+      性别： <select class='gender' name="gender">
+        <option value="保密">保密</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+    </label> 
+    <button>确认修改</button>
+    <script src="../js/self.js" type="module"></script>
+  </form>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+form>label:nth-child(1){
+  width: 100%;
+  height: 250px;
+  text-align: center;
+}
+form>label>img{
+  width: 50%;
+  display: inline-block;
+  border-radius: 50%;
+}

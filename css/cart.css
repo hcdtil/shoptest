@@ -1,0 +1,107 @@
+.content {
+  margin: 20px auto;
+}
+
+.content > div {
+  display: none;
+}
+
+.content > div.active {
+  display: block;
+}
+
+.content > div.off {
+  height: 800px;
+}
+
+.content > .on > .top {
+  height: 45px;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.content > .on > .top > input {
+  margin-right: 15px;
+}
+
+.content > .on > .bottom {
+  height: 45px;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.content > .on > .bottom > .btns > button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.content > .on > .center {
+  padding: 20px 0;
+}
+
+.content > .on > .center > li {
+  height: 100px;
+  border: 1px solid #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content > .on > .center > li:last-child {
+  margin-bottom: 0;
+}
+
+.content > .on > .center > li > .show,
+.content > .on > .center > li > .destory,
+.content > .on > .center > li > .select {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.content > .on > .center > li > .title {
+  width: 300px;
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.content > .on > .center > li > .price,
+.content > .on > .center > li > .subPrice {
+  width: 200px;
+  font-size: 18px;
+  color: red;
+  text-align: center;
+}
+
+.content > .on > .center > li > .number {
+  flex: 1;
+  display: flex;
+}
+
+.content > .on > .center > li > .number > button {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.content > .on > .center > li > .number > input {
+  width: 60px;
+  height: 26px;
+  margin: 0 5px;
+  text-align: center;
+  outline: none;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+
+  <div class="header container">
+    购物车
+    <p style="display: block;">
+      <a href="./list.html">继续去购物</a>
+      <a href="./index.html">回到首页</a>
+    </p>
+  </div>
+
+
+  <div class="content container">
+    <div class="off">
+      <img src="https://www.4fang.net/shop/images/cart-null.png">
+    </div>
+
+    <div class="on active">
+      <!-- JS 渲染 -->
+      <div class="top">
+        <input class="selectAll" type="checkbox"> 全选
+      </div>
+      <ul class="center">
+
+        <!-- 需要购物车数组重复渲染的是li剩余的都只需要渲染一次 -->
+        <li>
+          <div class="select">
+            <input data-id="1" class="selectItem" type="checkbox">
+          </div>
+          <div class="show">
+            <img src=""
+              alt="">
+          </div>
+          <div class="title">
+            
+          </div>
+          <div class="price">
+            ￥ 17.50
+          </div>
+          <div class="number">
+            <button data-id="1" class="sub">-</button>
+            <input type="text" value="1">
+            <button data-type="0" data-id="1" class="add">+</button>
+          </div>
+          <div class="subPrice">
+            ￥ 17.50
+          </div>
+          <div class="destory">
+            <button data-id="1" class="del">删除</button>
+          </div>
+        </li>
+        
+       
+      </ul>
+      <div class="bottom">
+        <p class="totalNum">总共购买了 0 件商品</p>
+        <div class="btns">
+          <button class="clear">清空购物车</button>
+          <button class="delAll" disabled="">删除所有已选中</button>
+          <button class="pay" disabled="">去支付</button>
+        </div>
+        <p class="totalNum">总价: ￥ 0.00 </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer container">
+    网页底部
+  </div>  
+  <script src="../js/cart.js" type="module"></script>
+</body>
+
+</html>

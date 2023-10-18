@@ -1,0 +1,19 @@
+.list{
+  font-size: 50px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  height: 60px;
+}
+.banner{
+  height: 600px;
+  background-color: pink;
+  margin: 20px auto;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
