@@ -61,16 +61,14 @@ let totalPage; // 总页数
 render();
 async function render() {
   // 请求接口获取分页数据====>结构
-  let a = await axios({ url: '/goods/list', datal });  
-  console.log(a)
-  let {data:{list,totalPage}} = await axios({ url: '/goods/list', datal }),
-  total = totalPage;
+  let {data:{list,totalPage:total}} = await axios({ url: '/goods/list', params:datal });
+  totalPage = total;
 
   // 遍历list渲染 分页内容
   listBox.innerHTML = list.reduce((prev, item) => {
     return prev + `
     <!-- 将商品id存储在li元素属性中为了后续方便获取商品  -->
-    <li data-id="${item.goods_id}">
+    <li data-id="${item._id}">
       <div class="show">
         <img src="${item.img_big_logo}">
         <!-- 判断is_hot,is_sale是否显示热销,折扣span元素-->
@@ -83,7 +81,7 @@ async function render() {
           <span class="curr">¥ ${item.current_price}</span>
           <span class="old">¥ ${item.price}</span>
         </p>
-        <button data-id="${item.goods_id}">加入购物车</button>
+        <button data-id="${item._id}">加入购物车</button>
       </div>
     </li>
     `
@@ -131,6 +129,7 @@ function bindEvent() {
     }
     if (target.className == 'last') { // 点击末页
       if (datal.current === totalPage) return;
+
       // 修改datal的current数据
       datal.current = totalPage;
       // 重新渲染分页数据
@@ -163,7 +162,7 @@ function bindEvent() {
       ;[...cateBox.children].forEach(ele => ele.classList.remove('active'));
       target.classList.add('active');
       // 修改data---->修改请求携带的数据
-      data.category = target.innerHTML == '全部' ? '' : target.innerHTML;
+      datal.category = target.innerHTML == '全部' ? '' : target.innerHTML;
       // 重新渲染
       render();
     }
@@ -176,7 +175,7 @@ function bindEvent() {
       ;[...filterBox.children].forEach(ele => ele.classList.remove('active'));
       target.classList.add('active');
       // 修改data---->修改请求携带的数据
-      data.filter = target.dataset.type;
+      datal.filter = target.dataset.type;
       // 重新渲染
       render();
     }
@@ -189,7 +188,7 @@ function bindEvent() {
       ;[...saleBox.children].forEach(ele => ele.classList.remove('active'));
       target.classList.add('active');
       // 修改data---->修改请求携带的数据
-      data.saleType = target.dataset.type;
+      datal.saleType = target.dataset.type;
       // 重新渲染
       render();
     }
@@ -202,8 +201,8 @@ function bindEvent() {
       ;[...sortBox.children].forEach(ele => ele.classList.remove('active'));
       target.classList.add('active');
       // 修改data---->修改请求携带的数据
-      data.sortType = target.dataset.type;
-      data.sortMethod = target.dataset.method;
+      datal.sortType = target.dataset.type;
+      datal.sortMethod = target.dataset.method;
       // 重新渲染
       render();
     }
@@ -214,7 +213,7 @@ function bindEvent() {
     return function () {
       clearInterval(timerId);
       timerId = setTimeout(() => {
-        data.search = this.value;
+        datal.search = this.value;
         console.log(data.search)
         render();
       }, 500);
@@ -239,7 +238,7 @@ function goodsEvent() {
       }
       // 请求加入购物车接口  地址: /cart/add  方式: post  参数: id(用户id),goodsId(商品id),请求头带token
       let goodsId = target.dataset.id;
-      let res = await ajax({ url: '/cart/add', method: 'post', data: { id: info.id, goodsId }, headers: { authorization: token } })
+      let res = await axios({ url: '/cart/add', method: 'post', data: { uid: info.id, gid: goodsId }, headers: { authorization: token } })
 
       if (res.code != 1) return alert('加入购物车失败,请重试');
       alert(res.message); // 加入购物车成功

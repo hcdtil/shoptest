@@ -1,4 +1,4 @@
-import { ajax, isLogin } from "../utils/ajax.js";
+import {axios, isLogin } from "../utils/ajax.js";
 
 // 获取本地的商品id
 let id = sessionStorage.getItem('id');
@@ -17,11 +17,11 @@ let descBox = document.querySelector('.desc');
 render();
 async function render() {
   // 发起请求 获取商品详细信息  地址: /goods/item 方式: get  参数: id(商品id)
-  let { code, info } = await ajax({ url: '/goods/item', data: { id } });
-  if (code != 1) {
-    location.href = './list.html';
-    throw new Error('获取商品详情失败');
-  }
+  let { data: { code, info } } = await axios({ url: '/goods/detail', params: { id } });
+  // if (code != 1) {
+  //   location.href = './list.html';
+  //   throw new Error('获取商品详情失败');
+  // }
   // console.log(info);
   // 渲染商品信息
   contentBox.innerHTML = `
